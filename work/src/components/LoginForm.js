@@ -14,11 +14,11 @@ const LoginForm = ({ setIsLoggedIn }) => {
     const [id, setId] = useState('')
     const [password, setPassword] = useState('')
 
-    const onChangeId = useCallback(() => {
+    const onChangeId = useCallback( e => {
         setId(e.target.value)
     }, [])
     
-    const onChangePassword = useCallback(() => {
+    const onChangePassword = useCallback( e => {
         setPassword(e.target.value)
     }, [])
     
@@ -26,6 +26,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
     
     const onSubmitForm = useCallback(() => {
         console.log(id, password)
+        setIsLoggedIn(true)
     }, [id, password])
 
     return (
@@ -34,12 +35,12 @@ const LoginForm = ({ setIsLoggedIn }) => {
                 <div>
                     <label htmlFor="user-id">Id</label>
                     <br />
-                    <Input name="user-id" value={id} onChangedId={onChangeId} required />
+                    <Input name="user-id" value={id} onChange={onChangeId} required />
                 </div>
                 <div>
                     <label htmlFor="user-password">password</label>
                     <br />
-                    <Input name="user-password" value={password} onChangedId={onChangePassword} required/>
+                    <Input name="user-password" value={password} onChange={onChangePassword} required/>
                 </div>
                 <ButtonWrapper style={style}>
                     <button type="primary" htmlType="submit" loading={false}>로그인</button>
