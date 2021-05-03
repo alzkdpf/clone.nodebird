@@ -1,12 +1,55 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
+import { Form, Input, Checkbox, Button } from 'antd';
 import AppLayout from 'components/AppLayout';
 import Head from 'next/head';
+import useInput from 'hooks/useInput';
+import styled from 'styled-components';
+
+const ErrorMsg = styled.div`
+  color: red;
+`;
+
 const SignUp = () => {
   const submit = useCallback(e => {});
 
   const [id, onChangeId] = useInput('');
+
   const [nick, onChangeNick] = useInput('');
+
   const [password, onChangePassword] = useInput('');
+  const [passwordCheck, setPasswordCheck] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
+
+  const [termError, setTermError] = useState(false);
+  const [term, setTerm] = useState('');
+  const onChangeTerm = useCallback(
+    e => {
+      setTerm(e.target.checked);
+      setTermError(false);
+    },
+    [term],
+  );
+
+  const onSubmit = useCallback(
+    e => {
+      if (password !== passwordCheck) {
+        return setPasswordError(true);
+      }
+
+      if (!term) {
+        return setTermError(true);
+      }
+    },
+    [password, passwordCheck, term],
+  );
+
+  const onChangePasswordCheck = useCallback(
+    e => {
+      setPasswordCheck(e.target.value);
+      setPasswordError(e.target.value !== password);
+    },
+    [password],
+  );
 
   return (
     <>
@@ -19,7 +62,7 @@ const SignUp = () => {
         <Head>
           <title>Sign Up</title>
         </Head>
-        <Form onFinish={submit}>
+        <Form onFinish={onSubmit}>
           <div>
             <label htmlFor="user-id">아이디</label>
             <br />
@@ -43,11 +86,24 @@ const SignUp = () => {
               type="password"
               value={passwordCheck}
               required
-              onChange={onChangePasswordCheck}
+              onChange={onChangePassword}
             />
             {passwordError && (
               <div style={{ color: 'red' }}>비밀번호가 일치하지 않습니다.</div>
             )}
+          </div>
+          <div>
+            <Checkbox name="user-term" checked={term} onChange={onChangeTerm}>
+              제로초 말을 잘 들을 것을 동의합니다.
+            </Checkbox>
+            {termError && (
+              <div style={{ color: 'red' }}>약관에 동의하셔야 합니다.</div>
+            )}
+          </div>
+          <div style={{ marginTop: 10 }}>
+            <Button type="primary" htmlType="submit">
+              가입하기
+            </Button>
           </div>
         </Form>
       </AppLayout>
