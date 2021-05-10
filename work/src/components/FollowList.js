@@ -7,7 +7,7 @@ import { StopOutlined } from '@ant-design/icons';
 const FollowList = ({ header, data }) => {
   return (
     <List
-      style={{ marginBottom: 20 }}
+      style={{ marginBottom: `20px` }}
       grid={{ gutter: 4, xs: 2, md: 3 }}
       header={<div> {header} </div>}
       loadMore={

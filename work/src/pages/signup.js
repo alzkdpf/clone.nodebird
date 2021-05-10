@@ -79,6 +79,11 @@ const SignUp = () => {
             />
           </div>
           <div>
+            <label>비밀번호 입력</label>
+            <br />
+            <input type="passwod"></input>
+          </div>
+          <div>
             <label htmlFor="user-password-check">비밀번호체크</label>
             <br />
             <Input
