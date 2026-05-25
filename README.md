@@ -1,11 +1,56 @@
-구버전 강좌는 old branch에 있습니다.
-리뉴얼 강좌 소스 코드는 master 브랜치에 있습니다.
-리뉴얼 강좌의 ch7는 prepare 폴더입니다.
+# clone.nodebird
 
-toolkit 적용하고 싶으신 분들을 위해 toolkit 폴더에 소스 코드 정리해두었습니다.
-Credits to [소라연](https://github.com/sorayeon/react-nodebird-toolkit)
+clone project
 
-버그가 있을 시 인프런이나 깃헙 issue로 남겨주시면 빠르게 해결하겠습니다.
+## Overview
 
-[https://nodebird.com](https://nodebird.com)에서 실제 실행 결과물을 확인하실 수 있습니다.
+- Repository: [alzkdpf/clone.nodebird](https://github.com/alzkdpf/clone.nodebird)
+- Visibility: Public
+- Last updated: 2021-05-01
+- Main stack: JavaScript
 
+## Project Structure
+
+```text
+.gitignore
+.idea/codeStyles/codeStyleConfig.xml
+.idea/encodings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/jsLibraryMappings.xml
+.idea/jsLinters/eslint.xml
+.idea/markdown-exported-files.xml
+.idea/markdown-navigator.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/react-nodebird.iml
+.idea/vcs.xml
+README.md
+ch1/front/.eslintrc
+ch1/front/package-lock.json
+ch1/front/package.json
+ch2/front/.eslintrc
+ch2/front/package-lock.json
+ch2/front/package.json
+ch3/front/.eslintrc
+ch3/front/package-lock.json
+ch3/front/package.json
+ch4/front/.eslintrc
+ch4/front/package-lock.json
+ch4/front/package.json
+ch5/back/app.js
+ch5/back/nodemon.json
+ch5/back/package-lock.json
+ch5/back/package.json
+ch5/front/.eslintrc
+ch5/front/package-lock.json
+ch5/front/package.json
+```
+
+## Getting Started
+
+Clone the repository and inspect the tracked files for the current workflow.
+
+## Notes
+
+- This README was generated from the repository metadata and file structure.
+- Update this document when setup steps, deployment targets, or project ownership changes.
